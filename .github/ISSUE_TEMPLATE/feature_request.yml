@@ -1,0 +1,22 @@
+name: Feature request
+description: Propose a metric, data source, or dashboard improvement.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or question to answer
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: For new metrics, include the definition, data source, and known caveats.
+    validations:
+      required: true
+  - type: textarea
+    id: privacy
+    attributes:
+      label: Privacy considerations
+      description: Could this expose individuals, small cohorts, or rankings?

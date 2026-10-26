@@ -1,0 +1,32 @@
+# Dependencies and build output
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+
+# Private local state (enterprise metadata, SQLite, exports)
+.local/
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+*.db
+exports/
+
+# Secrets
+.env*
+!.env.example
+*.pem
+*.key
+
+# Logs and test artifacts
+*.log
+npm-debug.log*
+test-results/
+playwright-report/
+.playwright/
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
