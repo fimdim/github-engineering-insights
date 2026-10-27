@@ -11,6 +11,12 @@ npm start
 
 Use the printed `http://127.0.0.1:PORT` URL. The app deliberately rejects other hosts and origins. Development reserves the next port for Vite HMR.
 
+## A body-parser advisory appears in npm audit
+
+The project temporarily pins Express's body-parser dependency to 2.3.0 using an npm override. Use the committed `package.json` and `package-lock.json` together, then run `npm ci`.
+
+Version 2.3.0 has a known compressed-request denial-of-service vulnerability. The app mitigates it by rejecting compressed JSON with `inflate: false`; do not enable decompression. See [the dependency advisory](../SECURITY.md#review-snapshot) for the upgrade plan.
+
 ## GitHub authentication or access fails
 
 Run `gh auth status --hostname github.com` and sign in with `gh auth login --hostname github.com` if needed. Authentication alone does not grant enterprise metrics access: verify enterprise role, read permissions, SSO authorization, Copilot metrics policy and rate limits.

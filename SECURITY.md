@@ -57,9 +57,9 @@ The publication review on 2026-10-26 found no credential-pattern matches in the 
 | --- | --- | --- |
 | Tinypool / Vitest mocker (through Vitest 3) | [GHSA-5gmw-xhrv-c9v3](https://github.com/advisories/GHSA-5gmw-xhrv-c9v3), [GHSA-85c8-ppgw-ccpr](https://github.com/advisories/GHSA-85c8-ppgw-ccpr), [GHSA-82fw-gwwq-j7x9](https://github.com/advisories/GHSA-82fw-gwwq-j7x9), [GHSA-qxg6-89mg-rqv8](https://github.com/advisories/GHSA-qxg6-89mg-rqv8) | **Fixed** by upgrading to Vitest 5 (development only) |
 | csv-parse 6 | [GHSA-8cw4-87c7-c6xx](https://github.com/advisories/GHSA-8cw4-87c7-c6xx) | **Fixed** by upgrading to csv-parse 7 |
-| body-parser 2.x, through Express 5 | [GHSA-27r3-jxmh-p828](https://github.com/advisories/GHSA-27r3-jxmh-p828) (compressed-body DoS) | **Mitigated; dependency upgrade pending**: the lockfile currently resolves body-parser 2.3.0. A patched release, 2.4.0, is available; [PR #7](https://github.com/fimdim/github-engineering-insights/pull/7) proposes the upgrade. The JSON parser keeps `inflate: false` and rejects compressed request bodies (covered by a test). `npm audit` will continue to report this advisory until the patched dependency is installed. |
+| body-parser 2.x, through Express 5 | [GHSA-27r3-jxmh-p828](https://github.com/advisories/GHSA-27r3-jxmh-p828) (compressed-body DoS) | **Mitigated; dependency upgrade pending**: an npm override pins body-parser to 2.3.0. The JSON parser keeps `inflate: false` and rejects compressed request bodies (covered by a test). This is a workaround, not a dependency fix; `npm audit` will continue to report the advisory until the patched dependency is installed. |
 
-Upgrade the remaining dependency to the patched release without downgrading Express; do not use `npm audit fix --force`.
+Once the patched release is available to the project, remove the body-parser override, regenerate the lockfile, and upgrade without downgrading Express. Keep `inflate: false`; do not use `npm audit fix --force`.
 This is a point-in-time review, not a security certification, exhaustive secret scan, or guarantee that future dependencies or commits are safe.
 
 ## Reporting vulnerabilities

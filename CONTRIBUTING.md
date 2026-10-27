@@ -44,4 +44,4 @@ For vulnerability reports, follow [SECURITY.md](SECURITY.md) rather than posting
 
 Contributions are accepted under the project's [MIT License](LICENSE). Follow the [Code of conduct](CODE_OF_CONDUCT.md).
 
-The committed lockfile resolves packages from the public npm registry. If your environment uses a private npm mirror, do not commit lockfile changes that replace `https://registry.npmjs.org/` URLs with internal feed hosts.
+The committed lockfile resolves packages from the public npm registry.
